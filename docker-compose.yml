@@ -1,0 +1,25 @@
+couchpotato:
+  image: razorgirl/couchpotato
+  container_name: couchweb
+  ports:
+  - "5050:5050"
+  volumes:
+  - /media/sda2/linux_data/couchpotato/config:/config
+  - /media/sda2/linux_data/couchpotato/downloads:/downloads
+  - /media/sda2/linux_data/couchpotato/movies:/movies
+  restart: always
+  links:
+  - deluge
+#delugeclient:
+#  image: aostanin/deluge
+#  ports:
+#  - "8112:8112" 
+#https://hub.docker.com/r/aostanin/deluge/~/dockerfile/
+deluge:
+  image: nightfly/docker-deluge
+  ports:
+  - "8112:8112"
+  - "58846:58846"
+  container_name: deluge_box
+  #links:
+  #- couchpotato	

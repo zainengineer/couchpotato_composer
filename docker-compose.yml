@@ -1,25 +1,30 @@
 couchpotato:
-  image: razorgirl/couchpotato
-  container_name: couchweb
+  dockerfile: Dockerfile
+  #image: 756028c9eba4
+  build: .
+  container_name: zcouchweb2
   ports:
   - "5050:5050"
   volumes:
   - /media/sda2/linux_data/couchpotato/config:/config
   - /media/sda2/linux_data/couchpotato/downloads:/downloads
   - /media/sda2/linux_data/couchpotato/movies:/movies
+  # - /media/sda2/linux_data/couchpotato/box/opt/couchServer:/opt/couchServer
   restart: always
-  links:
-  - deluge
+  # links:
+  # - deluge
 #delugeclient:
-#  image: aostanin/deluge
-#  ports:
-#  - "8112:8112" 
+# image: aostanin/deluge
+ #ports:
+ #- "8112:8112" 
 #https://hub.docker.com/r/aostanin/deluge/~/dockerfile/
-deluge:
-  image: nightfly/docker-deluge
-  ports:
-  - "8112:8112"
-  - "58846:58846"
-  container_name: deluge_box
-  #links:
-  #- couchpotato	
+
+# Commenting because of port conflict
+# Port 8112 is used by local dns server
+
+# deluge:
+#   image: nightfly/docker-deluge
+#   ports:
+#   - "8112:8112"
+#   - "58846:58846"
+#   container_name: deluge_box

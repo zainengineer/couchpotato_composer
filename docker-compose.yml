@@ -9,6 +9,7 @@ couchpotato:
   - /media/sda2/linux_data/couchpotato/config:/config
   - /media/sda2/linux_data/couchpotato/downloads:/downloads
   - /media/sda2/linux_data/couchpotato/movies:/movies
+  - /media/sda2/linux_data/couchpotato/.couchpotato:/root/.couchpotato
   # - /media/sda2/linux_data/couchpotato/box/opt/couchServer:/opt/couchServer
   restart: always
   # links:

@@ -24,6 +24,9 @@ EXPOSE 5050
 
 ## Set working directory
 # WORKDIR /opt
-
+#CMD ["((/sbin/ip route|awk '/default/ { print $3 }' && echo 'zhostmachine )  | xargs echo -n) >> /etc/hosts"]
+ENTRYPOINT ["((/sbin/ip route|awk '/default/ { print $3 }' && echo 'zhostmachine )  | xargs echo -n) >> /etc/hosts"]
+ENTRYPOINT ["echo  >> /etc/hosts"]
+ENTRYPOINT ["touch /root/work/test.txt"]
 ## Run Couchpotato
 ENTRYPOINT ["python", "/opt/couchServer/CouchPotatoServer/CouchPotato.py"]
